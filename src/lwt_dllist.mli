@@ -25,7 +25,7 @@ val get : 'a node -> 'a
   (** Returns the contents of a node *)
 
 val set : 'a node -> 'a -> unit
-  (** Change the contents of a node *)
+  (** Changes the contents of a node *)
 
 val remove : 'a node -> unit
   (** Removes a node from the sequence it is part of. It does nothing
@@ -40,7 +40,7 @@ val is_empty : 'a t -> bool
   (** Returns [true] iff the given sequence is empty *)
 
 val length : 'a t -> int
-  (** Returns the number of elemenets in the given sequence. This is a
+  (** Returns the number of elements in the given sequence. This is a
       O(n) operation where [n] is the number of elements in the
       sequence. *)
 
@@ -48,28 +48,28 @@ val add_l : 'a -> 'a t -> 'a node
   (** [add_l x s] adds [x] to the left of the sequence [s] *)
 
 val add_r : 'a -> 'a t -> 'a node
-  (** [add_l x s] adds [x] to the right of the sequence [s] *)
+  (** [add_r x s] adds [x] to the right of the sequence [s] *)
 
 exception Empty
-  (** Exception raised by [take_l] and [tale_s] and when the sequence
+  (** Exception raised by [take_l] and [take_r] and when the sequence
       is empty *)
 
 val take_l : 'a t -> 'a
-  (** [take_l x s] remove and returns the leftmost element of [s]
+  (** [take_l x s] removes and returns the leftmost element of [s]
 
       @raise Empty if the sequence is empty *)
 
 val take_r : 'a t -> 'a
-  (** [take_l x s] remove and returns the rightmost element of [s]
+  (** [take_l x s] removes and returns the rightmost element of [s]
 
       @raise Empty if the sequence is empty *)
 
 val take_opt_l : 'a t -> 'a option
-  (** [take_opt_l x s] remove and returns [Some x] where [x] is the
+  (** [take_opt_l x s] removes and returns [Some x] where [x] is the
       leftmost element of [s] or [None] if [s] is empty *)
 
 val take_opt_r : 'a t -> 'a option
-  (** [take_opt_l x s] remove and returns [Some x] where [x] is the
+  (** [take_opt_l x s] removes and returns [Some x] where [x] is the
       rightmost element of [s] or [None] if [s] is empty *)
 
 val transfer_l : 'a t -> 'a t -> unit
