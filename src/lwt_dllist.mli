@@ -36,6 +36,10 @@ val remove : 'a node -> unit
 val create : unit -> 'a t
   (** [create ()] creates a new empty sequence *)
 
+val clear : 'a t -> unit
+(** Removes all nodes from the given sequence. The nodes are not actually
+    mutated to note their removal. Only the sequence's pointers are updated. *)
+
 val is_empty : 'a t -> bool
   (** Returns [true] iff the given sequence is empty *)
 
@@ -60,7 +64,7 @@ val take_l : 'a t -> 'a
       @raise Empty if the sequence is empty *)
 
 val take_r : 'a t -> 'a
-  (** [take_l x s] removes and returns the rightmost element of [s]
+  (** [take_r x s] removes and returns the rightmost element of [s]
 
       @raise Empty if the sequence is empty *)
 
@@ -69,7 +73,7 @@ val take_opt_l : 'a t -> 'a option
       leftmost element of [s] or [None] if [s] is empty *)
 
 val take_opt_r : 'a t -> 'a option
-  (** [take_opt_l x s] removes and returns [Some x] where [x] is the
+  (** [take_opt_r x s] removes and returns [Some x] where [x] is the
       rightmost element of [s] or [None] if [s] is empty *)
 
 val transfer_l : 'a t -> 'a t -> unit
@@ -91,15 +95,15 @@ val iter_l : ('a -> unit) -> 'a t -> unit
       the left *)
 
 val iter_r : ('a -> unit) -> 'a t -> unit
-  (** [iter_l f s] applies [f] on all elements of [s] starting from
+  (** [iter_r f s] applies [f] on all elements of [s] starting from
       the right *)
 
 val iter_node_l : ('a node -> unit) -> 'a t -> unit
-  (** [iter_l f s] applies [f] on all nodes of [s] starting from
+  (** [iter_node_l f s] applies [f] on all nodes of [s] starting from
       the left *)
 
 val iter_node_r : ('a node -> unit) -> 'a t -> unit
-  (** [iter_l f s] applies [f] on all nodes of [s] starting from
+  (** [iter_node_r f s] applies [f] on all nodes of [s] starting from
       the right *)
 
 val fold_l : ('a -> 'b -> 'b) -> 'a t -> 'b -> 'b
