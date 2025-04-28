@@ -1,3 +1,8 @@
+## v1.1.0 (2025-04-28)
+
+- Add missing primitive `clear` (@raphael-proust, #7)
+- Fix documentation typo (@raphael-proust, #7)
+
 ## v1.0.1 (2021-05-21)
 
 - Remove `lwt` dependency; it's only really needed for the tests (@aantron #1).
